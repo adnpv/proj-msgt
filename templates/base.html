@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   		<meta charset="utf-8">
+			<title>{% block title %} my base template {% endblock %}</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+
+		<link href="{% static "assets/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.min.css" %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static "assets/style.css" %}"/>
+
+
+	</head>
+
+<!--(inicio)Nivel 2 publico web-->
+<body>
+
+	<div class="wrapper">
+
+		<header>	
+			<!-- NAVBAR-->
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						  	<span class="sr-only">Toggle navigation</span>
+						 	<span class="icon-bar"></span>
+						  	<span class="icon-bar"></span>
+						  	<span class="icon-bar"></span>
+						</button>
+
+						<a class="navbar-brand" href="/home">Simulacion de Sistemas</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						
+
+						<ul class="nav navbar-nav">
+							<li><a href="/gna">Gna</a></li>
+							<li><a href="/gva">gva</a></li>
+						  	<li><a href="/model">models</a></li>
+						</ul>
+						
+
+					</div><!-- /.navbar-collapse --> 
+				</div>	
+			</nav>
+			<!-- PAGE-HEADER-->
+				{% block topinfo %}
+				<div class="jumbotron">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<h1>Real Time InEvents</h1>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    {% endblock %}
+		</header>
+		<!-- PAGE-HEADER-->
+				
+
+<div class="container">
+ <!-- related projects -->
+			{% block middle%}
+
+			{% endblock %}
+			<div id="content">
+
+				{% block contenido %}
+					this is the content area
+				{% endblock %}
+				
+			</div>
+
+</div> <!-- /container -->
+<!--/ CONTENT -->
+
+
+<!-- FOOTER-->
+<footer>
+	{% block footer %} 
+	<div class="container">
+		<hr>
+        	<p>Simulacion de sistemas</p>
+  	</div><!-- CONTAINER FOOTER-->
+	 {% endblock %} 
+</footer>
+
+
+</body>
+</html>
