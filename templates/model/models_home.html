@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+{% load static %}
+{% block menu %}
+
+{% endblock %}
+
+        {% block contenido %}
+<div style="width:800px">
+
+</div>
+
+<div class="row">
+    <div class="tabbable span12" style="width:850px; margin:auto">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tabs1-pane1" data-toggle="tab">Variables</a></li>
+        <li><a href="#tabs1-pane2" data-toggle="tab">Ver Eventos</a></li>
+        <li><a href="#tabs1-pane3" data-toggle="tab">Ver Grafica</a></li>
+        <li><a href="#tabs1-pane4" data-toggle="tab">Ver Analisis</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tabs1-pane1">
+          <h4>Colocacion de Variables</h4>
+
+<!--___________________________________________________________________________________________-->
+<div style="margin:0 20px;width:250px; display:inline-block; vertical-align:top">
+    <form method="get" name="gna_form" action="/gna/generar" >
+
+    <fieldset data-role="controlgroup" id="1">
+     <legend>Tiempo atencion (S)</legend>
+                <div >
+                      Valores generados:<br>
+                      {{random_vals}}
+                      {{reprec}}
+
+                </div>
+          <h4>Ingreso valores aleatorios</h4>
+            <input type="text" id="aleat-1" name="al1" placeholder="valor aleatorio 1" required><br>
+            <input type="text" id="aleat-2" name="al2" placeholder="valor aleatorio 2" required><br>
+            <input type="text" id="aleat-3" name="al3" placeholder="valor aleatorio 3" required><br>
+          <h4>Seleccion Generador</h4>
+          <input type="radio" name="fde" id="unif" value="1" checked="checked" />
+          <label for="unif">Uniforme</label><br>
+
+          <input type="radio" name="fde" id="exponen" value="2"  />
+          <label for="exponen">Exponencial</label><br>
+
+          <input type="radio" name="fde" id="norm" value="3"  />
+          <label for="norm">Normal</label><br>
+
+    </fieldset>
+
+    </form>
+      <div class="gvas" id="exponencial" style="display:none">
+          <h4>Exponencial:</h4>
+        <form method="get" name="gna_form" action=""><!--"/gva/gexpon" >-->
+          promedio de ejecucion:  
+          <!--<label>promedio de ejecucion:</label>-->
+          <input type="text" id="prom" name="promed" placeholder="promedio" required><br>
+          <!--<input type="hidden" id="arreglo" name="arreglo" value="{{arreglu}}"><br>-->
+          
+          <a class="btn btn-primary procesos" id="exp" > Generar Valores</a>
+          <!--<input type="submit" value="generar Valores" /> -->
+    </form>
+  </div>
+
+
+
+  <div  class="gvas" id="uniforme" style="display:none" >
+        <h4>Uniforme:</h4>
+      <form method="get" name="gva_form2" action=""><!--"/gva/gunif" >-->
+        Rango de tiempo de ejecucion:
+        <!--<label for="min">min:</label>-->
+        <input type="text" id="min" name="min" placeholder="min val" required><br>
+
+        <!--<label>max:</label>-->
+        <input type="text" id="max" name="max" placeholder="max val" required><br>
+
+
+        <a class="btn btn-primary procesos" id="unif" > Generar Valores</a>
+        <!--<input type="submit" value="generar Valores" /> -->
+      </form>
+  </div>
+
+
+
+  <div class="gvas" id="normal" style="display:none">
+        <h4>Normal:</h4>
+      <form method="get" name="gva_form3" action=""><!--"/gva/gnorm" >-->
+        <!--
+        <label>promedio:</label>
+        <input type="text" id="min" name="min" placeholder="Promedio" required><br>
+
+        <label>desv. Estandar:</label>
+        <input type="text" id="min" name="min" placeholder="desv. estandar" required><br>
+        <a class="btn btn-primary procesos" id="norm" > Generar Valores</a>
+        <!--<input type="submit" value="generar Valores" /> -->
+          -->
+      </form>
+  </div>
+</div>
+
+<div style="margin:0 20px;width:250px; display:inline-block; vertical-align:top">
+    <form method="get" name="gna_form" action="/gna/generar" >
+
+    <fieldset data-role="controlgroup" id="1">
+     <legend>Tiempo entre Arribos (A)</legend>
+                <div >
+                      Valores generados:<br>
+                      {{random_vals}}
+                      {{reprec}}
+
+                </div>
+          <h4>Ingreso valores aleatorios</h4>
+            <input type="text" id="aleat-12" name="al12" placeholder="valor aleatorio 1" required><br>
+            <input type="text" id="aleat-22" name="al22" placeholder="valor aleatorio 2" required><br>
+            <input type="text" id="aleat-32" name="al32" placeholder="valor aleatorio 3" required><br>
+          <h4>Seleccion Generador</h4>
+          <input type="radio" name="fde2" id="unif2" value="1" checked="checked" />
+          <label for="unif2">Uniforme</label><br>
+
+          <input type="radio" name="fde2" id="exponen2" value="2"  />
+          <label for="exponen2">Exponencial</label><br>
+
+          <input type="radio" name="fde2" id="norm2" value="3"  />
+          <label for="norm2">Normal</label><br>
+
+    </fieldset>
+
+    </form>
+    <div class="gvas2" id="exponencial2" style="display:none">
+          <h4>Exponencial:</h4>
+        <form method="get" name="gna_form" action=""><!--"/gva/gexpon" >-->
+          Promedio de tiempos de arribo:
+          <!--<label></label>-->
+          <input type="text" id="prom2" name="promed2" placeholder="promedio" required><br>
+          <!--<input type="hidden" id="arreglo" name="arreglo" value="{{arreglu}}"><br>-->
+          
+          <a class="btn btn-primary procesos2" id="exp2" > Generar Valores</a>
+          <!--<input type="submit" value="generar Valores" /> -->
+        </form>
+  </div>
+
+
+
+  <div  class="gvas2" id="uniforme2" style="display:none" >
+        <h4>Uniforme:</h4>
+      <form method="get" name="gva_form2" action=""><!--"/gva/gunif" >-->
+        Rango de tiempos de llegada:
+        <!--<label for min>min:</label>-->
+        <input type="text" id="min2" name="min2" placeholder="min val" required><br>
+
+        <!--<label>max:</label>-->
+        <input type="text" id="max2" name="max2" placeholder="max val" required><br>
+
+        <a class="btn btn-primary procesos2" id="unif2" > Generar Valores</a>
+        <!--<input type="submit" value="generar Valores" /> -->
+      </form>
+  </div>
+
+
+
+  <div class="gvas2" id="normal2" style="display:none">
+      <h4>Normal:</h4>
+      <form method="get" name="gva_form3" action=""><!--"/gva/gnorm" >-->
+        <!--
+        <label>promedio:</label>
+        <input type="text" id="min" name="promnorm2" placeholder="Promedio" required><br>
+
+        <label>desv. Estandar:</label>
+        <input type="text" id="min" name="desvest2" placeholder="desv. estandar" required><br>
+          
+        <a class="btn btn-primary procesos2" id="norm2" > Generar Valores</a>
+        <!--<input type="submit" value="generar Valores" /> -->
+          -->
+      </form>
+  </div>
+</div>
+
+
+
+<div style="margin:0 20px;width:200px; display:inline-block; vertical-align:top">
+valores uniformes:<br>
+<div id="proc"> </div>
+{{unifv}}<br>
+valores (exponencial):<br>
+<div id="arrib"> </div>
+{{exponv}}
+</div>
+
+<!--___________________________________________________________________________________________-->
+
+
+        </div>
+        <div class="tab-pane" id="tabs1-pane2">
+          <h4>Eventos</h4>
+<!--___________________________________________________________________________________________-->
+<div style="margin:0 20px;width:250px; display:inline-block; vertical-align:top">
+ 
+</div>
+
+<div style="margin:0 20px;width:250px; display:inline-block; vertical-align:top">
+ Sec2
+</div>
+
+
+
+<div style="margin:0 20px;width:200px; display:inline-block; vertical-align:top">
+Sec3
+</div>
+
+<!--___________________________________________________________________________________________-->
+
+        </div>
+        <div class="tab-pane" id="tabs1-pane3">
+          <h4>Pane 3 Content</h4>
+          <p>Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit. Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+        </div>
+        <div class="tab-pane" id="tabs1-pane4">
+          <h4>Pane 4 Content</h4>
+          <p>Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit. Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+        </div>
+      </div><!-- /.tab-content -->
+    </div><!-- /.tabbable -->
+    </div><!-- /.row -->
+
+
+
+        {% endblock %}

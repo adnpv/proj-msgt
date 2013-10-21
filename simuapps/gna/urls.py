@@ -1,8 +1,9 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 #from event.views import HelloTemplate#agregar el class view! desde nuestras vistas
 urlpatterns= patterns('simuapps.gna.views',
-	url(r'^$','home'),
-	url(r'^generar/$','generar_gna'),
+	url(r'^$',TemplateView.as_view(template_name="numbers.html")),
+	url(r'^generar/$','generar_gna'),	 
 	
 	# url(r'^uhome/$','uhome'),
 	# url(r'^newacc/$','crear_cuenta'),

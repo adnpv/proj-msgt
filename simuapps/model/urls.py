@@ -1,7 +1,10 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 #from event.views import HelloTemplate#agregar el class view! desde nuestras vistas
 urlpatterns= patterns('simuapps.model.views',
-	url(r'^$','home'),
+	url(r'^$',TemplateView.as_view(template_name="models_home.html")),
+	url(r'^valores_procesos/$','process'),
+	url(r'^valores_arribos/$','arrib'),
 	
 	# url(r'^uhome/$','uhome'),
 	# url(r'^newacc/$','crear_cuenta'),

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+{% block menu %}
+
+{% endblock %}
+
+        {% block contenido %}
+<div style="width:800px">
+  <div>
+Resultados:
+{{periodu}}
+
+</div>
+<div id="extra_show" style="display: none">
+<p>X=(( A  .Xi)+c ) MOD m</p>
+X=((<input style="width:25px" type="text" id="a" name="a" placeholder="A" required>.<input style="width:25px" type="text" id="x" name="x" placeholder="Xi" required>))+<input style="width:25px" type="text" id="c" name="c" placeholder="C" required>
+MOD <input style="width:25px" type="text" id="m" name="m" placeholder="M" required>
+</div>
+
+</div>
+
+<div style="margin:0 20px;width:200px; display:inline-block; vertical-align:top">
+<form method="get" name="gna_form" action="/gna/generar" >
+
+<fieldset data-role="controlgroup" id="1">
+ <legend>Seleccione un GVA</legend>
+ <div >
+Valores generados:<br>
+{{random_vals}}
+{{reprec}}
+
+</div>
+      <input type="radio" name="fde" id="radio-choice-1" value="1" checked="checked" />
+      <label for="radio-choice-1">Uniforme</label>
+
+      <input type="radio" name="fde" id="radio-choice-2" value="2"  />
+      <label for="radio-choice-2">Exponencial</label>
+
+      <input type="radio" name="fde" id="radio-choice-3" value="3"  />
+      <label for="radio-choice-3">Normal</label>
+
+</fieldset>
+
+</form>
+</div>
+
+
+<div style="margin:0 20px;width:200px; display:inline-block; vertical-align:top">
+
+<form method="get" name="gna_form" action="/gva/generar" >
+<p>(( A  .Xi)+c ) MOD m</p>
+  <label>a:</label>
+  <input type="text" id="a_val" name="a" placeholder="valor A" required
+   oninput="check(this)"><br>
+
+  <label>x:</label>
+  <input type="text" id="x_val" name="x" placeholder="valor Xi" required><br>
+
+  <label>c:</label>
+  <input type="text" id="c_val" name="c" placeholder="valor C" required><br>
+
+  <label>m:</label>
+  <input type="text" id="m_val" name="m" placeholder="valor M" required><br>
+
+  <label>filas:</label>
+  <input type="text" id="filas_val" name="filas" value="1" min="1" max="30" required><br>
+
+  <label>p:</label>
+  <input type="text" id="p_val" name="p" value="1" min="1" max="4" required><br>
+
+  <input type="submit" value="generar Numeros y valores" /> 
+</form>
+</div>
+<!--{{data}}-->
+
+
+
+
+
+
+<div style="margin:0 20px;width:200px; display:inline-block; vertical-align:top">
+valores uniformes:<br>
+{{unifv}}<br>
+valores (exponencial):<br>
+{{exponv}}
+  <div class="gvas" id="exponencial" style="display:none">
+          Exponencial:
+        <form method="get" name="gna_form" action=""><!--"/gva/gexpon" >-->
+            <!--
+          <label>promedio:</label>
+          <input type="text" id="prom" name="promed" placeholder="promedio" required><br>-->
+          <input type="hidden" id="arreglo" name="arreglo" value="{{arreglu}}"><br>
+          
+
+          <input type="submit" value="generar Valores" /> 
+        </form>
+  </div>
+
+
+
+  <div  class="gvas" id="uniforme" style="display:none" >
+        Uniforme:
+      <form method="get" name="gva_form2" action=""><!--"/gva/gunif" >-->
+        <!--
+        <label>min:</label>
+        <input type="text" id="min" name="min" placeholder="min val" required><br>
+
+        <label>max:</label>
+        <input type="text" id="max" name="max" placeholder="max val" required><br>
+        -->
+        <input type="submit" value="generar Valores" /> 
+      </form>
+  </div>
+
+
+
+  <div class="gvas" id="normal" style="display:none">
+        Normal:
+      <form method="get" name="gva_form3" action=""><!--"/gva/gnorm" >-->
+        <!--
+        <label>promedio:</label>
+        <input type="text" id="min" name="min" placeholder="Promedio" required><br>
+
+        <label>desv. Estandar:</label>
+        <input type="text" id="min" name="min" placeholder="desv. estandar" required><br>
+          -->
+        <input type="submit" value="generar Valores" /> 
+      </form>
+  </div>
+
+</div>
+
+        {% endblock %}
